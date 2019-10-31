@@ -1,10 +1,9 @@
 package lt.liudasstonys.angulartourofheroesapi.controller;
 
+import lt.liudasstonys.angulartourofheroesapi.dto.HeroDto;
 import lt.liudasstonys.angulartourofheroesapi.entity.Hero;
 import lt.liudasstonys.angulartourofheroesapi.service.HeroService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +22,20 @@ public class DbController {
     }
 
     @GetMapping("api/heroes/{id}")
-    public Hero getAllHeroes(@PathVariable(value = "id") Long heroId) {
-        return heroService.getHeroById(heroId);
+    public Hero getHeroById(@PathVariable Long id) {
+        return heroService.getHeroById(id);
     }
+
+    @PostMapping("api/heroes")
+    public Hero addHero(@RequestBody HeroDto hero) {
+        return heroService.addHero(hero);
+    }
+
+    //    @PostMapping("api/heroes")
+//    public Hero addHero(@RequestBody String body) {
+//        App.logger.info("POST is working.");
+//        App.logger.info(body);
+////        return heroService.addHero(hero);
+//        return null;
+//    }
 }
