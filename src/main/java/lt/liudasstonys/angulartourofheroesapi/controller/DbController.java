@@ -30,12 +30,4 @@ public class DbController {
     public Hero addHero(@RequestBody HeroDto hero) {
         return heroService.addHero(hero);
     }
-
-    //    @PostMapping("api/heroes")
-//    public Hero addHero(@RequestBody String body) {
-//        App.logger.info("POST is working.");
-//        App.logger.info(body);
-////        return heroService.addHero(hero);
-//        return null;
-//    }
 }

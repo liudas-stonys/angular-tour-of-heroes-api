@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class Hero {
     private final Long id;
-    //    @NonNull
+    // @NonNull
     private final String name;
 }

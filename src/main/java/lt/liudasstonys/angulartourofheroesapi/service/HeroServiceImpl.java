@@ -6,7 +6,6 @@ import lt.liudasstonys.angulartourofheroesapi.entity.Hero;
 import lt.liudasstonys.angulartourofheroesapi.mockdb.MockDb;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -33,14 +32,12 @@ public class HeroServiceImpl implements HeroService {
 
     @Override
     public Hero addHero(HeroDto heroDto) {
-        Hero hero = new Hero((long) (db.getHeroes().size() + 1), heroDto.getName());
-        App.logger.info(hero.toString());
+        // TODO: (long) vs. new Long vs. Long.valueOf()
+        // Hero hero = new Hero((long) (db.getHeroes().size() + 1), heroDto.getName());
 
-        List<Hero> heroes = new ArrayList<>(db.getHeroes());
-        heroes.forEach(aHero -> App.logger.info(aHero.toString()));
-        heroes.add(hero);
-        db.setHeroes(heroes);
-
+        Hero hero = new Hero(counter.incrementAndGet(), heroDto.getName());
+        db.getHeroes().add(hero);
+        db.getHeroes().forEach(aHero -> App.logger.info(aHero.toString()));
         return hero;
     }
 }
