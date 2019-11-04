@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 public class DbController {
 
-    private HeroService heroService;
+    private final HeroService heroService;
 
-    public DbController(HeroService heroService) {
+    public DbController(final HeroService heroService) {
         this.heroService = heroService;
     }
 

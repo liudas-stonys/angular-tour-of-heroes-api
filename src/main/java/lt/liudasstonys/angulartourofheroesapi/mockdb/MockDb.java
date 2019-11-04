@@ -1,11 +1,9 @@
 package lt.liudasstonys.angulartourofheroesapi.mockdb;
 
-import lt.liudasstonys.angulartourofheroesapi.App;
-import lt.liudasstonys.angulartourofheroesapi.entity.Hero;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import lombok.Getter;
 import lombok.Setter;
+import lt.liudasstonys.angulartourofheroesapi.entity.Hero;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -18,7 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class MockDb {
     //private AtomicLong counter = App.getCtx().getBean(AtomicLong.class);
 
-    private AtomicLong counter;
+    private final AtomicLong counter;
     private List<Hero> heroes;
 
     public MockDb(AtomicLong counter) {
@@ -42,6 +40,4 @@ public class MockDb {
                 new Hero(counter.incrementAndGet(), "Tornado")
         ));
     }
-
-    // TODO: addHero() ???
 }

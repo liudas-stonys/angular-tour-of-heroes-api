@@ -12,8 +12,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class HeroServiceImpl implements HeroService {
 
-    private AtomicLong counter;
-    private MockDb db;
+    private final AtomicLong counter;
+    private final MockDb db;
 
     public HeroServiceImpl(AtomicLong counter, MockDb db) {
         this.counter = counter;

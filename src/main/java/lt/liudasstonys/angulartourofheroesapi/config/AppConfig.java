@@ -10,8 +10,9 @@ import java.util.concurrent.atomic.AtomicLong;
 @Configuration
 public class AppConfig {
 
+    // https://stackoverflow.com/questions/9749746/what-is-the-difference-between-atomic-volatile-synchronized
     @Bean
-    public AtomicLong counterBean() {
+    public AtomicLong atomicCounter() {
         return new AtomicLong();
     }
 }
