@@ -8,7 +8,13 @@ import java.util.List;
 public interface HeroService {
     List<Hero> getAllHeroes();
 
-    Hero getHeroById(Long id);
+    Hero getHeroById(Long heroId);
 
     Hero addHero(HeroDto heroDto);
+
+    Hero updateHero(Hero hero);
+
+    Hero deleteHero(Long heroId);
+
+    List<Hero> searchAllHeroes(String name);
 }
